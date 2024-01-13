@@ -1,0 +1,12 @@
+name: unit-tests
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: python:3.10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install requirements
+        run: pip3 install --no-cache-dir -r requirements.txt
+      - name: Run tests
+        run: pytest -p no:cacheprovider
