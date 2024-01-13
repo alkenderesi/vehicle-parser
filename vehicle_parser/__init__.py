@@ -1,4 +1,4 @@
 """Vehicle data parser package."""
 
 
-from .vehicle import Vehicle, Car, Bicycle, VehicleHandler
+from .vehicle import VehicleHandler, VehicleCollection, Vehicle, Car, Bicycle

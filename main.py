@@ -1,9 +1,16 @@
-from vehicle_parser import VehicleHandler
+import os
+from dotenv import load_dotenv
+from vehicle_parser import VehicleHandler, VehicleCollection
 
 
 def main():
-    car = VehicleHandler.load("data/A/AA0001.dat")
-    print(car)
+    load_dotenv()
+    DATA_DIR = os.getenv("DATA_DIR") or "data"
+
+    vehicles = VehicleCollection()
+    vehicles.load(DATA_DIR, VehicleHandler)
+
+    print(vehicles)
 
 
 if __name__ == "__main__":
