@@ -24,8 +24,9 @@ def test_load_bicycle():
 
 
 def test_load_vehicle_collection():
-    vehicles = VehicleCollection()
-    vehicles.load(DATA_DIR, VehicleHandler)
+    vehicle_collection = VehicleCollection()
+    vehicle_collection.load(DATA_DIR, VehicleHandler)
+    vehicles = set(vehicle_collection.vehicles)
 
     test_vehicles = {
         Car(id="AA0001", brand="Opel", doors=5),
@@ -34,7 +35,7 @@ def test_load_vehicle_collection():
         Bicycle(id="DD0001", brand="Merida", max_weight=150),
     }
 
-    assert len(vehicles.vehicles) == len(test_vehicles)
+    assert len(vehicles) == len(test_vehicles)
 
-    for vehicle in vehicles.vehicles:
+    for vehicle in vehicles:
         assert vehicle in test_vehicles
